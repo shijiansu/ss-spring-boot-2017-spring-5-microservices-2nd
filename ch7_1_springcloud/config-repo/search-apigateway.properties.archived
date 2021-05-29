@@ -1,0 +1,23 @@
+# service discovery
+eureka.client.serviceUrl.defaultZone=http://eureka-server-1:8761/eureka/
+# gateway
+zuul.routes.search-apigateway.serviceId=search-service
+zuul.routes.search-apigateway.path=/api/**
+# actuator
+management.security.enabled=false
+
+# service discovery
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-1:8761/eureka/
+# gateway
+zuul:
+  routes:
+    search-apigateway:
+      serviceId: search-service
+      path: /api/**
+# actuator
+management:
+  security:
+    enabled: false

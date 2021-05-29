@@ -1,0 +1,7 @@
+# service discovery
+eureka.client.serviceUrl.defaultZone=http://eureka-server-1:8761/eureka/
+# gateway
+zuul.routes.fares-apigateway.serviceId=fares-service
+zuul.routes.fares-apigateway.path=/api/**
+# actuator
+management.security.enabled=false

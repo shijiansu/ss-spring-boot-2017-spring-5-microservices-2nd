@@ -1,0 +1,31 @@
+server:
+  port: 8001
+# service discovery
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-1:8761/eureka/
+# actuator
+management:
+  security:
+    enabled: false
+
+---
+spring:
+  profiles: 1
+server:
+  port: 8001
+
+---
+spring:
+  profiles: 2
+server:
+  port: 8002
+
+---
+spring:
+  profiles: ha
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-load-balancer:8760/eureka/

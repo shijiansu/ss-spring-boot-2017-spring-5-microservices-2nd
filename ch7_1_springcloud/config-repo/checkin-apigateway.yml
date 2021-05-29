@@ -1,0 +1,37 @@
+server:
+  port: 8075
+# service discovery
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-1:8761/eureka/
+# gateway
+zuul:
+  routes:
+    search-apigateway:
+      serviceId: checkin-service
+      path: /api/**
+# actuator
+management:
+  security:
+    enabled: false
+
+---
+spring:
+  profiles: 1
+server:
+  port: 8075
+
+---
+spring:
+  profiles: 2
+server:
+  port: 8076
+
+---
+spring:
+  profiles: ha
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-load-balancer:8760/eureka/

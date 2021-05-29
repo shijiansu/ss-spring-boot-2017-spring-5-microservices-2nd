@@ -1,0 +1,77 @@
+version: "3.8"
+services:
+  website:
+    image: shijian/website
+    container_name: website
+    hostname: website
+    ports:
+      - "8001:8001" # only open this for the localhost to access
+    networks:
+      - frontend
+    depends_on: # still depends on the homemade script - docker-entrypoint.sh
+      - book
+      - search
+      - checkin
+    environment: # use hostname to enable microservice gateway
+      - ENV_GATEWAY_HOSTNAME=microservice-gateway
+
+  microservice-gateway:
+    image: shijian/microservice-gateway
+    container_name: microservice-gateway
+    hostname: microservice-gateway
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - search
+      - checkin
+      - fares
+      - book
+
+  book:
+    image: shijian/book-microservice
+    container_name: book-microservice
+    hostname: book-microservice
+    networks:
+      - backend
+    depends_on:
+      - message-queue
+      - fares
+
+  checkin:
+    image: shijian/checkin-microservice
+    container_name: checkin-microservice
+    hostname: checkin-microservice
+    networks:
+      - backend
+    depends_on:
+      - message-queue
+
+  fares:
+    image: shijian/fares-microservice
+    container_name: fares-microservice
+    hostname: fares-microservice
+    networks:
+      - backend
+
+  search:
+    image: shijian/search-microservice
+    container_name: search-microservice
+    hostname: search-microservice
+    networks:
+      - backend
+    depends_on:
+      - message-queue
+
+  message-queue:
+    image: rabbitmq:3.8.6-management
+    container_name: message-queue
+    hostname: message-queue
+    networks:
+      - backend
+
+networks:
+  frontend:
+    name: frontend
+  backend:
+    name: backend

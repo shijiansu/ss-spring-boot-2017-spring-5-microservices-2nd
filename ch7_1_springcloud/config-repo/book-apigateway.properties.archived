@@ -1,0 +1,7 @@
+# service discovery
+eureka.client.serviceUrl.defaultZone=http://eureka-server-1:8761/eureka/
+# gateway
+zuul.routes.book-apigateway.serviceId=book-service
+zuul.routes.book-apigateway.path=/api/**
+# actuator
+management.security.enabled=false

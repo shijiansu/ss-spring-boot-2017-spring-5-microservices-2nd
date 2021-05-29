@@ -1,0 +1,60 @@
+server:
+  port: 8070
+# service discovery
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-1:8761/eureka/
+spring:
+  # message queue - connection
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  # message queue - queue
+  cloud:
+    stream:
+      bindings:
+        checkInQ:
+          destination: checkInQ
+# refresh scope
+demo:
+  refreshscope:
+    hello: checkin
+# actuator
+management:
+  security:
+    enabled: false
+
+---
+spring:
+  profiles: 1
+server:
+  port: 8070
+
+---
+spring:
+  profiles: 2
+server:
+  port: 8071
+
+---
+spring:
+  profiles: 3
+server:
+  port: 8072
+
+---
+spring:
+  profiles: 4
+server:
+  port: 8073
+
+---
+spring:
+  profiles: ha
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server-load-balancer:8760/eureka/

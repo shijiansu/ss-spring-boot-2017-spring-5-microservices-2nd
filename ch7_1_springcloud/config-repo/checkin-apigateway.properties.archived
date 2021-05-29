@@ -1,0 +1,7 @@
+# service discovery
+eureka.client.serviceUrl.defaultZone=http://eureka-server-1:8761/eureka/
+# gateway
+zuul.routes.checkin-apigateway.serviceId=checkin-service
+zuul.routes.checkin-apigateway.path=/api/**
+# actuator
+management.security.enabled=false
