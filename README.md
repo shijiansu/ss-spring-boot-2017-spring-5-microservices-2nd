@@ -12,6 +12,27 @@
 
 ## Outline
 
+- ch3_1_hello-world-service-groovy - example of Groovy
+- ch3_2_greeting-restful-service - RESTFul API, HATEOAS, Swagger
+- ch3_2_greeting-webflux-service
+- ch3_2_greeting-messaging-service
+- ch3_2_greeting-security-service - example of the simplest basic authentication as default
+- ch3_2 - Few TODO from the book examples
+  - Need to update the security/oauth2 solutions
+  - Need to update the actuator solutions
+  - Spring Data REST HAL Browser is deprecated! Prefer the HAL Explorer (artifactId: spring-data-rest-hal-explorer)!
+  - Swagger UI is not working
+- ch3_3_springboot_2_0 - example of SpringBoot2, RESTFul APIs, RabbitMQ, email sending, FakeSMTP, Docker
+- ch6_1_springboot_2_3 - example of SpringBoot2, RESTFul APIs, WebFlux, RabbitMQ, Microservices, Docker, Dockerfile, Docker wait for dependencies, Docker Compose, Docker Network, Nginx (reverse proxy)
+  - book - SpringBoot2
+  - checkin - SpringBoot2
+  - fares - SpringBoot2
+  - search - SpringBoot2
+  - website - SpringBoot2 + Thymeleaf
+  - microservice-gateway - Nginx
+
+## Book
+
 - Demystifying Microservices
   - Principles of microservices
     - Single responsibility per service
