@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/language-java-blue)
-![](https://img.shields.io/badge/technology-spring%20boot,%20spring%20cloud-blue)
 ![](https://img.shields.io/badge/development%20year-2020-orange)
 
 ## Outline
